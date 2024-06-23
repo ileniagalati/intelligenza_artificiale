@@ -31,16 +31,9 @@
        (at b2 depot)
        (at b3 depot)
        (at b4 depot)
-
-       (carrierPlace place1 c1)
-       (carrierPlace place2 c1)
-       (carrierPlace place3 c2)
-       (carrierPlace place4 c2)
-
        (at food depot)
        (at medicine depot)
        (at tools depot)
-
        (at p1 l1) *ci serve garantire che p1 e p2 siano nello stesso luogo e che gli altri siano in luoghi diversi
        (at p2 l1)
        (at p3 l2)
@@ -49,6 +42,11 @@
        (at p6 l5)
        (at p7 l6)
        (at p8 l7)
+
+       (carrierPlace place1 c1)
+       (carrierPlace place2 c1)
+       (carrierPlace place3 c2)
+       (carrierPlace place4 c2)
 
        (need p1 food) *p1 needs food or tools
        (need p1 tools)
@@ -82,19 +80,26 @@
 
   (:goal (and
     (hasSomething p1)
+
     (has p2 medicine)
+
     (has p3 medicine)
+
     (has p4 medicine)
     (has p4 food)
+
     (has p5 food)
     (has p5 medicine)
     (has p5 tools)
+
     (has p6 food)
     (has p6 medicine)
     (has p6 tools)
+
     (has p7 food)
     (has p7 medicine)
     (has p7 tools)
+
     (has p8 food)
     (has p8 medicine)
     (has p8 tools))

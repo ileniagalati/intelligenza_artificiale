@@ -3,13 +3,15 @@
     (:requirements :strips :typing)
 
      (:types
-        location           *luoghi in cui possono trovarsi persone, box ecc
-        box                *cassette da riempire con gli oggetti da trasportare
-        person             *persone a cui consegnare oggetti
-        carrier            *vettori su cui i robot caricano le cassette
-        agent              *robot che eseguono le azioni
-        content            *il contenuto inseribile nelle box
-        carrierplace       *per modellare i posti disponibili sui carriers
+        location - object           *luoghi in cui possono trovarsi persone, box ecc
+        box - movable               *cassette da riempire con gli oggetti da trasportare
+        person - fixed              *persone a cui consegnare oggetti
+        carrier - movable           *vettori su cui i robot caricano le cassette
+        agent - movable             *robot che eseguono le azioni
+        content - movable           *il contenuto inseribile nelle box
+        carrierplace - object       *per modellare i posti disponibili sui carriers
+        movable - locatable         *per modellare oggetti che si muovono
+        fixed - locatable           *per modellare oggetti fissati ovvero non possono muoversi dalla loro posizione
     )
 
     (:predicates
@@ -17,7 +19,7 @@
         (carrierPlace ?p - place ?c - carrier)      *posto appartiene al vettore o meno
         (availablePlace ?p - place)                 *posto libero o meno
         (boxOnPlace ?b - box ?p - place)            *box sul carrier o meno
-        (at ?o - object ?l - location)              *un oggetto si trova in una location o meno
+        (at ?o - locatable ?l - location)              *un oggetto si trova in una location o meno
         (has ?p - person ?c - content)              *la persona possiede il content o meno
         (need  ?p - person ?c - content)            *la persona ha bisogno del content o meno
         (inBox ?b - box ?c - content)               *la box contiene il content o meno
