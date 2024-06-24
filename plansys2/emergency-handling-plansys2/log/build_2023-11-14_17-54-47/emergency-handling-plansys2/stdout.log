@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target empty_box_node[0m
+[35m[1mConsolidate compiler generated dependencies of target move_node[0m
+[35m[1mConsolidate compiler generated dependencies of target load_box_node[0m
+[35m[1mConsolidate compiler generated dependencies of target fill_node[0m
+[35m[1mConsolidate compiler generated dependencies of target move_to_need_node[0m
+[35m[1mConsolidate compiler generated dependencies of target unload_box_node[0m
+[  8%] [32mBuilding CXX object CMakeFiles/move_node.dir/src/move.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/unload_box_node.dir/src/unload_box.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/fill_node.dir/src/fill.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/move_to_need_node.dir/src/move_to_need.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/load_box_node.dir/src/load_box.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/empty_box_node.dir/src/empty_box.cpp.o[0m
+[ 58%] [32m[1mLinking CXX executable move_node[0m
+[ 66%] [32m[1mLinking CXX executable load_box_node[0m
+[ 75%] [32m[1mLinking CXX executable unload_box_node[0m
+[ 75%] Built target move_node
+[ 83%] [32m[1mLinking CXX executable fill_node[0m
+[ 91%] [32m[1mLinking CXX executable move_to_need_node[0m
+[ 91%] Built target load_box_node
+[ 91%] Built target unload_box_node
+[ 91%] Built target fill_node
+[ 91%] Built target move_to_need_node

@@ -1,0 +1,172 @@
+(define 
+	(domain emergency-handling)
+	(:requirements :strips :typing :negative-preconditions :durative-actions :fluents :duration-inequalities)
+	(:types locatable place location - object
+		box carrier agent person content  - locatable
+		depot emergencyposition - location)
+	(:predicates
+		(at ?x - locatable ?l - location)
+		(empty ?b - box)
+		(contains ?b - box ?c - content)
+		(need ?p - person ?c - content)
+		(available ?p - place ?c - carrier)
+		(on ?b - box ?c - carrier)
+		(of ?p - place ?c - carrier)
+		(loadable ?b - box)
+        (free-agent ?a - agent)
+	)
+	(:functions
+		(path-cost)
+		(weight ?c - content)
+		(box-weight ?b - box)
+		(carrier-weight ?c - carrier )
+	)
+
+	(:durative-action fill
+		:parameters  (?b - box ?d - depot ?c - content ?cr - carrier ?a - agent)
+		:duration (= ?duration (weight ?c))
+		:condition (and 
+            (at start (free-agent ?a))
+			(at start (empty ?b))
+            (over all (loadable ?b))
+			(over all (at ?cr ?d))
+			(over all (at ?b ?d))
+			(over all(at ?a ?d))
+		)
+		:effect (and
+            (at start (not(free-agent ?a)))
+			(at end (increase (box-weight ?b)(weight  ?c)))
+            (at end (increase path-cost (* (box-weight ?b) 2)))
+			(at end (contains ?b ?c))
+            (at end (not (empty ?b)))
+            (at end (free-agent ?a)))
+	)
+
+	(:durative-action empty-box
+		:parameters (?b - box ?c - content ?ep - emergencyposition ?p - person ?cr - carrier ?a - agent)
+		:duration (= ?duration (weight ?c))
+		:condition (and
+            (at start (free-agent ?a))
+            (at start (contains ?b ?c))
+			(over all (at ?p ?ep))
+			(over all (at ?a ?ep))
+			(over all (at ?cr ?ep))
+			(over all (on ?b ?cr))
+			(over all (need ?p ?c))
+		)
+		:effect (and 
+            (at start (not(free-agent ?a)))
+            (at start (not (contains ?b ?c)))
+            (at end (decrease (box-weight ?b)(weight ?c)))
+            (at end (decrease (carrier-weight ?cr) (weight ?c)))
+			(at end (empty ?b))
+			(at end (not (need ?p ?c)))
+            (at end (free-agent ?a))
+        )
+	)
+	
+	(:durative-action load-box
+		:parameters (?b - box ?c - carrier ?a - agent ?p - place ?l - location)
+		:duration (= ?duration (box-weight ?b))
+		:condition (and 
+            (at start (free-agent ?a))
+			(over all (at ?b ?l))
+			(over all(at ?c ?l))
+			(over all (at ?a ?l))
+			(over all (of ?p ?c))
+			(at start (available ?p ?c))
+			(at start(not (on ?b ?c)))
+			(at start(loadable ?b))
+		)
+		:effect (and
+            (at start (not(free-agent ?a)))
+			(at end (increase (carrier-weight ?c)(box-weight ?b)))
+            (at end (increase path-cost (+ (box-weight ?b) 3)))
+			(at end (on ?b ?c))
+			(at end (not (loadable ?b)))
+			(at end (not (available ?p ?c)))
+            (at end (free-agent ?a))
+		)
+	)
+
+	(:durative-action unload-box
+		:parameters (?b - box ?cr - carrier ?a - agent ?p - place ?ep - emergencyposition)
+		:duration (= ?duration  (box-weight ?b) )
+		:condition (and 
+            (at start (free-agent ?a))
+			(at start (on ?b ?cr))
+			(at start (empty ?b))
+			(at start (not (loadable ?b)))
+			(over all (at ?cr ?ep))
+			(over all (at ?a ?ep))
+			(at start (not (available ?p ?cr)))
+		)
+		:effect (and
+            (at start (not(free-agent ?a)))
+            (at end (increase path-cost 8))
+			(at end (not(on ?b ?cr)))
+			(at end (loadable ?b))
+			(at end (at ?b ?ep))
+			(at end (available ?p ?cr))
+            (at end (free-agent ?a))
+		)
+	)
+
+	(:durative-action move-to-need
+		:parameters (?p - person ?from - location ?to - location ?c - content ?b - box ?cr - carrier ?a - agent)
+		:duration (= ?duration  (carrier-weight ?cr ))
+		:condition (and 
+            (at start (free-agent ?a))
+			(at start (at ?cr ?from))
+            (at start (at ?a ?from))
+			(over all (on ?b ?cr))
+			(over all (at ?p ?to))
+			(over all (contains ?b ?c))
+			(over all (need ?p ?c))
+		)
+		:effect (and 
+            (at start (not(free-agent ?a)))
+			(at start (not (at ?cr ?from)))
+			(at start (not (at ?a ?from)))
+			(at end (increase path-cost (* (carrier-weight ?cr) 5)))
+			(at end (at ?a ?to))
+			(at end (at ?cr ?to))
+            (at end (free-agent ?a))
+		)
+	)
+
+	(:durative-action move
+		:parameters (?from - location ?to - location ?a - agent ?cr - carrier)
+		:duration (= ?duration (carrier-weight ?cr ))
+		:condition (and
+            (at start (free-agent ?a))
+			(at start (at ?a ?from))
+			(at start (at ?cr ?from))
+		)
+		:effect (and
+            (at start (not(free-agent ?a)))
+			(at start (not (at ?a ?from)))
+			(at start (not (at ?cr ?from)))
+			(at start (increase path-cost (* (carrier-weight ?cr) 10)))
+			(at end (at ?a ?to))
+			(at end (at ?cr ?to))
+            (at end (free-agent ?a))
+		)
+	)	
+
+	(:durative-action move-agent
+		:parameters (?from - location ?to - location ?a - agent)
+		:duration (= ?duration 3)
+		:condition (and
+            (at start (free-agent ?a))
+			(at start (at ?a ?from))
+		)
+		:effect (and
+            (at start (not(free-agent ?a)))
+			(at start (not (at ?a ?from)))
+			(at start (increase path-cost  15))
+			(at end (at ?a ?to))
+            (at end (free-agent ?a))
+		)
+	)
+)
