@@ -1,0 +1,4 @@
+source;share/emergency-handling-plansys2/local_setup.bash
+source;share/emergency-handling-plansys2/local_setup.dsv
+source;share/emergency-handling-plansys2/local_setup.sh
+source;share/emergency-handling-plansys2/local_setup.zsh

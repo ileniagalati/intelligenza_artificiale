@@ -1,0 +1,38 @@
+[0.161s] Invoking command in '/home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2 -- -j8 -l8
+[2.610s] [ 16%] Built target unload_box_node
+[2.610s] [ 33%] Built target empty_box_node
+[2.611s] [ 50%] Built target fill_node
+[2.611s] [ 66%] Built target move_to_need_node
+[2.611s] [ 83%] Built target move_node
+[2.613s] [100%] Built target load_box_node
+[2.636s] Invoked command in '/home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2 -- -j8 -l8
+[2.765s] Invoking command in '/home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2
+[2.832s] -- Install configuration: ""
+[2.865s] -- Execute custom install script
+[2.878s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/launch/commands
+[2.878s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/launch/emergency-handling-plansys2_launch.py
+[2.880s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/pddl/domain.pddl
+[2.885s] -- Symlinking: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/pddl/tmp
+[2.908s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/empty_box_node
+[2.909s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/fill_node
+[2.909s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/load_box_node
+[2.909s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/move_node
+[2.914s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/move_to_need_node
+[2.915s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/lib/emergency-handling-plansys2/unload_box_node
+[2.927s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/ament_index/resource_index/package_run_dependencies/emergency-handling-plansys2
+[2.930s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/ament_index/resource_index/parent_prefix_path/emergency-handling-plansys2
+[2.930s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/environment/ament_prefix_path.sh
+[2.932s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/environment/ament_prefix_path.dsv
+[2.932s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/environment/path.sh
+[2.937s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/environment/path.dsv
+[2.937s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/local_setup.bash
+[2.937s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/local_setup.sh
+[2.937s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/local_setup.zsh
+[2.937s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/local_setup.dsv
+[2.938s] -- Symlinking: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/package.dsv
+[2.950s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/ament_index/resource_index/packages/emergency-handling-plansys2
+[2.950s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.952s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/cmake/emergency-handling-plansys2Config.cmake
+[2.952s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/cmake/emergency-handling-plansys2Config-version.cmake
+[2.953s] -- Up-to-date symlink: /home/aiguy/emergency-handling-plansys2/install/emergency-handling-plansys2/share/emergency-handling-plansys2/package.xml
+[2.957s] Invoked command in '/home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2
