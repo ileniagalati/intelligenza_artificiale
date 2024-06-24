@@ -41,13 +41,13 @@
                  (not(empty ?b))
                  (inBox ?b ?c)
              )
-        )
+    )
 
     (:action move ;spostamento di un robot da una location a un'altra
          :parameters (?a - agent ?c - carrier ?from ?to - location)
          :precondition (and
-            (at ?a ?from)
-               (at ?c ?from))
+             (at ?a ?from)
+             (at ?c ?from))
          :effect (and
              (at ?a ?to)
              (at ?c ?to)
@@ -87,7 +87,7 @@
                  (not (need ?p ?c))
                  (not (needSomething ?p))
                  (hasSomething ?p) )
-        )
+    )
 
 
      (:action load  ;caricare la box sul carrier per trasportarla in un'altra location
