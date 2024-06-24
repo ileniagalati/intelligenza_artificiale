@@ -1,1 +1,0 @@
-/home/aiguy/emergency-handling-plansys2/build/emergency-handling-plansys2/ament_cmake_environment_hooks/local_setup.sh
