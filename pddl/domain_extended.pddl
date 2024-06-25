@@ -1,5 +1,5 @@
 (define
-    (domain emergency)
+    (domain emergency_temporal)
     (:requirements :strips :typing :durative-actions :fluents)
 
     (:types
@@ -27,15 +27,17 @@
         (needAll ?p - person)                           ;la persona ha bisogno di tutte le risorse recapitate per ritenersi soddisfatta o meno
         (needSomething ?p - person)                     ;la persona ha bisogno di almeno una risorsa recapitata tra quelle di cui ha bisogno per ritenersi soddisfatta o meno
         (fullPlace ?p - carrierplace)                   ;il posto è occupato o meno
-        (freeAgent ?g - agent)                          ;indica se l'agent g è libero
+        (freeAgent ?g - agent)                          ;indica se l'agente è libero o meno
     )
 
     (:functions
         (content_weight ?c - content)
+        (box_weight ?b - box)
+        (carrier_weight ?c - carrier)
         (fill_duration)
         (move_duration)
-        (empty_duration)
         (load_duration)
+        (empty_duration)
     )
 
 
@@ -54,13 +56,14 @@
                         (at start (not(empty ?b)))
                         (at end (inBox ?b ?c))
                         (at end (freeAgent ?a))
+                        (at end (increase (box_weight ?b) (content_weight ?c)))
                    )
     )
 
 
     (:durative-action move
         :parameters (?a - agent ?c - carrier ?from ?to - location)
-        :duration (= ?duration (move_duration))
+        :duration (= ?duration (* (carrier_weight ?c) (move_duration)))
         :condition (and
                         (at start (freeAgent ?a))
                         (at start (at ?a ?from))
@@ -70,8 +73,8 @@
                         (at start (not(freeAgent ?a)))
                         (at start (not(at ?a ?from)))
                         (at start (not(at ?c ?from)))
-                        (at end (at ?a ?to)))
-                        (at end (at ?c ?to)))
+                        (at end (at ?a ?to))
+                        (at end (at ?c ?to))
                         (at end (freeAgent ?a))
                    )
 
@@ -96,10 +99,11 @@
                         (at end (not(inBox ?b ?c)))
                         (at end (has ?p ?c))
                         (at end (freeAgent ?a))
+                        (at end (decrease (box_weight ?b) (content_weight ?c)))
                    )
     )
 
-    (:durative-action empty
+    (:durative-action emptyAtLeastOne
                 :parameters (?a - agent ?b - box ?c - content ?p - person ?l - location)
                 :duration (= ?duration (* (content_weight ?c) (empty_duration)))
                 :condition (and
@@ -119,12 +123,13 @@
                                 (at end (not(inBox ?b ?c)))
                                 (at end (hasSomething ?p))
                                 (at end (freeAgent ?a))
+                                (at end (decrease (box_weight ?b) (content_weight ?c)))
                            )
     )
 
     (:durative-action load
             :parameters (?a - agent ?c - carrier ?p - carrierplace ?b - box ?l - location)
-            :duration (= ?duration (load_duration))
+            :duration (= ?duration (* (box_weight ?b) (load_duration)))
             :condition (and
                             (at start (freeAgent ?a))
                             (over all (at ?a ?l))
@@ -140,16 +145,17 @@
                             (at end (not(at ?b ?l)))
                             (at end (boxOnPlace ?b ?p))
                             (at end (freeAgent ?a))
+                            (at end (increase (carrier_weight ?c) (box_weight ?b)))
                        )
 
     )
 
     (:durative-action unload
             :parameters (?a - agent ?c - carrier ?p - carrierplace ?b - box ?l - location)
-            :duration (= ?duration (load_duration))
+            :duration (= ?duration (* (box_weight ?b) (load_duration)))
             :condition (and
                             (at start (freeAgent ?a))
-                            (at start (boxOnPlace ?b ?p)
+                            (at start (boxOnPlace ?b ?p))
                             (at start (fullPlace ?p))
                             (over all (at ?a ?l))
                             (over all (at ?c ?l))
@@ -162,6 +168,7 @@
                             (at start (availablePlace))
                             (at end (not(boxOnPlace ?b ?p)))
                             (at end (freeAgent ?a))
+                            (at end(decrease (carrier_weight ?c) (box_weight ?b)))
                        )
 
     )
