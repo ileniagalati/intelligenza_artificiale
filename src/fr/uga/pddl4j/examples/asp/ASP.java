@@ -32,15 +32,15 @@ import java.util.Set;
  * @version 4.0 - 30.11.2021
  */
 @CommandLine.Command(name = "ASP",
-    version = "ASP 1.0",
-    description = "Solves a specified planning problem using A* search strategy.",
-    sortOptions = false,
-    mixinStandardHelpOptions = true,
-    headerHeading = "Usage:%n",
-    synopsisHeading = "%n",
-    descriptionHeading = "%nDescription:%n%n",
-    parameterListHeading = "%nParameters:%n",
-    optionListHeading = "%nOptions:%n")
+        version = "ASP 1.0",
+        description = "Solves a specified planning problem using A* search strategy.",
+        sortOptions = false,
+        mixinStandardHelpOptions = true,
+        headerHeading = "Usage:%n",
+        synopsisHeading = "%n",
+        descriptionHeading = "%nDescription:%n%n",
+        parameterListHeading = "%nParameters:%n",
+        optionListHeading = "%nOptions:%n")
 public class ASP extends AbstractPlanner {
 
     /**
@@ -154,7 +154,7 @@ public class ASP extends AbstractPlanner {
     private int h(String action){
         if(action.equals("move")){
             return 3;
-        } else if (action.equals("unload-box")) {
+        } else if (action.equals("unload")) {
             return 4;
         }
         return 1;
