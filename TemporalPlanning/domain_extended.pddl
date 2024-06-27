@@ -4,14 +4,13 @@
 
     (:types
             location - object           ;luoghi in cui possono trovarsi persone box ecc
-            box - movable               ;cassette da riempire con gli oggetti da trasportare
-            person - fixed              ;persone a cui consegnare oggetti
-            carrier - movable           ;vettori su cui i robot caricano le cassette
-            agent - movable             ;robot che eseguono le azioni
-            content - movable           ;il contenuto inseribile nelle box
             carrierplace - object       ;per modellare i posti disponibili sui carriers
-            movable - locatable         ;per modellare oggetti che si muovono
-            fixed - locatable           ;per modellare oggetti fissati ovvero non possono muoversi dalla loro posizione
+            locatable - object             ;per modellare oggetti localizzabili
+            box - locatable               ;cassette da riempire con gli oggetti da trasportare
+            agent - locatable             ;robot che eseguono le azioni
+            content - locatable           ;il contenuto inseribile nelle box
+            carrier - locatable           ;vettori su cui i robot caricano le cassette
+            person - locatable              ;persone a cui consegnare oggetti
     )
 
     (:predicates
@@ -165,7 +164,7 @@
                             (at start (not(freeAgent ?a)))
                             (at start (not(fullPlace ?p)))
                             (at start(at ?b ?l))
-                            (at start (availablePlace))
+                            (at start (availablePlace ?p))
                             (at end (not(boxOnPlace ?b ?p)))
                             (at end (freeAgent ?a))
                             (at end(decrease (carrier_weight ?c) (box_weight ?b)))

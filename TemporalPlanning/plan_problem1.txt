@@ -1,0 +1,31 @@
+
+; Version LPG-td-1.4
+; Seed 114617922
+; Command line: ./lpg-td -o domain_extended.pddl -f problem1_extended.pddl -out plan -quality
+; Problem problem1_extended.pddl
+; Time 12.26
+; Plan generation time 0.49
+; Search time 0.49
+; Parsing time 0.00
+; Mutex time 0.00
+; MetricValue 18.00
+
+0.0003:   (FILL A B1 FOOD DEPOT) [2.0000]
+2.0005:   (LOAD A C PLACE3 B1 DEPOT) [6.0000]
+8.0007:   (FILL A B4 DRUG DEPOT) [1.0000]
+9.0010:   (LOAD A C PLACE4 B4 DEPOT) [4.0000]
+13.0013:   (FILL A B2 DRUG DEPOT) [1.0000]
+14.0015:   (LOAD A C PLACE2 B2 DEPOT) [4.0000]
+18.0018:   (FILL A B5 FOOD DEPOT) [2.0000]
+20.0020:   (LOAD A C PLACE1 B5 DEPOT) [6.0000]
+26.0023:   (MOVE A C DEPOT L1) [65.0000]
+91.0025:   (UNLOAD A C PLACE3 B1 L1) [6.0000]
+97.0027:   (EMPTY A B1 FOOD P1 L1) [6.0000]
+103.0030:   (UNLOAD A C PLACE4 B4 L1) [4.0000]
+107.0033:   (EMPTY A B4 DRUG P1 L1) [3.0000]
+110.0035:   (UNLOAD A C PLACE2 B2 L1) [4.0000]
+114.0038:   (EMPTY A B2 DRUG P2 L1) [3.0000]
+117.0040:   (MOVE A C L1 L2) [30.0000]
+147.0043:   (UNLOAD A C PLACE1 B5 L2) [6.0000]
+153.0045:   (EMPTY A B5 FOOD P3 L2) [6.0000]
+

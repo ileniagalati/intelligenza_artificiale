@@ -5,12 +5,12 @@
      (:types
         location - object           ;luoghi in cui possono trovarsi persone box ecc
         carrierplace - object       ;per modellare i posti disponibili sui carriers
+        locatable - object             ;per modellare oggetti localizzabili
         box - locatable               ;cassette da riempire con gli oggetti da trasportare
         agent - locatable             ;robot che eseguono le azioni
         content - locatable           ;il contenuto inseribile nelle box
         carrier - locatable           ;vettori su cui i robot caricano le cassette
         person - locatable              ;persone a cui consegnare oggetti
-        locatable - object             ;per modellare oggetti localizzabili
      )
 
     (:predicates

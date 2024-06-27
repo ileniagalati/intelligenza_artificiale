@@ -45,7 +45,7 @@
         (at b4 depot)
         (at b5 depot)
         (at tools depot)
-        (at medicine depot)
+        (at drug depot)
         (at food depot)
         (at p1 l1)
         (at p2 l1)
