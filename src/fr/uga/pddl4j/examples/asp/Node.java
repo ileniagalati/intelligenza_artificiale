@@ -8,7 +8,7 @@ import fr.uga.pddl4j.problem.State;
  * @author D. Pellier
  * @version 1.0 - 02.12.2021
  */
-public final class Node extends State {
+public class Node extends State {
 
     /**
      * The parent node of this node.
@@ -76,7 +76,6 @@ public final class Node extends State {
      */
     public Node(State state, Node parent, int action, double cost, int depth, double heuristic) {
         super(state);
-
         this.parent = parent;
         this.action = action;
         this.cost = cost;
