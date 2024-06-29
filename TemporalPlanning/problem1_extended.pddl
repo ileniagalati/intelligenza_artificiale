@@ -1,6 +1,6 @@
 (define
     (problem problem1_extended)
-    (:domain emergency_temporal)
+    (:domain temporal_emergency)
 
     (:objects
         a - agent
