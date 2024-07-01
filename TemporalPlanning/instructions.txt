@@ -1,6 +1,0 @@
-Punto 3.1:
-
-Per risolvere il problema con le azioni durative usiamo il planner LPG-TD di planutils.
-
-Per ottenere il piano usando il planner LPG-TD in versione quality, nella cartella di LPG-TD digitare:
-	./lpg-td -o domain_extended.pddl -f problem1_extended.pddl -out plan_problem1 -quality
