@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68b015ef-19a5-45b6-8dc3-c07db499c41f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="68b015ef-19a5-45b6-8dc3-c07db499c41f" name="Changes" comment="modificato anche file xml perchè mi dava errore (da controllare)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/uga/pddl4j/examples/asp/ASP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uga/pddl4j/examples/asp/ASP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/uga/pddl4j/examples/asp/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/uga/pddl4j/examples/asp/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +32,9 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2XMCaMlLBZ0orc68FCBpsCyqoBB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/project/ASP/lib/pddl4j-4.0.0.jar",
+    "last_opened_file_path": "/Users/mariacritelli/Università/intelligenza_artificiale/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,10 +58,16 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/domain" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ASP">
     <configuration name="ASP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.uga.pddl4j.examples.asp.ASP" />
@@ -117,8 +121,33 @@
       <workItem from="1700254132915" duration="888000" />
       <workItem from="1703065630187" duration="1232000" />
       <workItem from="1703699262572" duration="1605000" />
-      <workItem from="1719567068755" duration="4220000" />
+      <workItem from="1719567068755" duration="5629000" />
+      <workItem from="1719596491827" duration="638000" />
+      <workItem from="1719649993612" duration="2448000" />
+      <workItem from="1719828476306" duration="4174000" />
+      <workItem from="1719915190702" duration="648000" />
+      <workItem from="1720021651934" duration="357000" />
+      <workItem from="1720022011416" duration="5281000" />
+      <workItem from="1720081831224" duration="203000" />
+      <workItem from="1720082037592" duration="1567000" />
+      <workItem from="1720101470091" duration="1799000" />
+      <workItem from="1720257166045" duration="4268000" />
+      <workItem from="1720470827210" duration="1978000" />
+      <workItem from="1720513511989" duration="2617000" />
+      <workItem from="1720556953223" duration="3311000" />
+      <workItem from="1721075394145" duration="3134000" />
+      <workItem from="1721208766000" duration="2000" />
+      <workItem from="1721208826796" duration="1356000" />
     </task>
+    <task id="LOCAL-00001" summary="modificato anche file xml perchè mi dava errore (da controllare)">
+      <option name="closed" value="true" />
+      <created>1719571469670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719571469670</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,5 +163,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modificato anche file xml perchè mi dava errore (da controllare)" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificato anche file xml perchè mi dava errore (da controllare)" />
   </component>
 </project>

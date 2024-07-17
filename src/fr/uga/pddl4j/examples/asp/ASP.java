@@ -44,33 +44,20 @@ import java.util.Random;
         descriptionHeading = "%nDescription:%n%n",
         parameterListHeading = "%nParameters:%n",
         optionListHeading = "%nOptions:%n")
+
+
 public class ASP extends AbstractPlanner {
-
-    /**
-     * The class logger.
-     */
     private static final Logger LOGGER = LogManager.getLogger(ASP.class.getName());
-
-    /**
-     * The HEURISTIC property used for planner configuration.
-     */
     public static final String HEURISTIC_SETTING = "HEURISTIC";
-
-    /**
-     * The default value of the HEURISTIC property used for planner configuration.
-     */
-    public static final StateHeuristic.Name DEFAULT_HEURISTIC = StateHeuristic.Name.FAST_FORWARD;
-
+    public static final StateHeuristic.Name DEFAULT_HEURISTIC = StateHeuristic.Name.AJUSTED_SUM;
     /**
      * The WEIGHT_HEURISTIC property used for planner configuration.
      */
     public static final String WEIGHT_HEURISTIC_SETTING = "WEIGHT_HEURISTIC";
-
     /**
      * The default value of the WEIGHT_HEURISTIC property used for planner configuration.
      */
     public static final double DEFAULT_WEIGHT_HEURISTIC = 1.0;
-
     /**
      * The stochastic pruning property for deciding if a node must be dropped.
      */
@@ -80,24 +67,20 @@ public class ASP extends AbstractPlanner {
      * The total number of states evaluated
      */
     private int numOfStatesEvaluated = 0;
-
     /**
      * The weight of the heuristic.
      */
     private double heuristicWeight;
-
     /**
      * The name of the heuristic used by the planner.
      */
     private StateHeuristic.Name heuristic;
-
     /**
      * Creates a new A* search planner with the default configuration.
      */
     public ASP() {
         this(ASP.getDefaultConfiguration());
     }
-
     /**
      * Creates a new A* search planner with a specified configuration.
      *
@@ -122,7 +105,6 @@ public class ASP extends AbstractPlanner {
         }
         this.heuristicWeight = weight;
     }
-
     /**
      * Set the stochastic pruning flag.
      *
@@ -139,8 +121,8 @@ public class ASP extends AbstractPlanner {
      *
      * @param heuristic the name of the heuristic.
      */
-    @CommandLine.Option(names = {"-e", "--heuristic"}, defaultValue = "FAST_FORWARD",
-            description = "Set the heuristic : AJUSTED_SUM, AJUSTED_SUM2, AJUSTED_SUM2M, COMBO, "
+    @CommandLine.Option(names = {"-e", "--heuristic"}, defaultValue = "AJUSTED_SUM",
+            description = "Set the heuristic : FAST_FARWARD, AJUSTED_SUM, AJUSTED_SUM2, AJUSTED_SUM2M, COMBO, "
                     + "MAX, FAST_FORWARD SET_LEVEL, SUM, SUM_MUTEX (preset: FAST_FORWARD)")
     public void setHeuristic(StateHeuristic.Name heuristic) {
         this.heuristic = heuristic;
@@ -462,85 +444,5 @@ public class ASP extends AbstractPlanner {
     }
 }
 
-
-/*
-if (stochasticPruning) {
-
-                        // if the child node must be generated
-                        if (generateChild) {
-                            List<ConditionalEffect> effects = op.getConditionalEffects();
-                            // Apply the effect to the child node (state)
-                            applyEffects(effects, current, state);
-
-                            double g = current.getCost() + op.getCost().getValue();
-                            Node result = nodesToExploreSet.get(state);
-
-                            // if the child node is yet to be explored
-                            if (result == null) {
-                                result = exploredNodes.get(state);
-                                // if the child node was already explored precedently
-                                if (result != null) {
-                                    // if the cumulative cost of the node currently generated is lesser than the
-                                    // node precedently explored, then we update it's fields and reinsert into the
-                                    // list of nodes to be explored
-                                    if (g < result.getCost()) {
-                                        updateNode(result, current, g, i);
-                                        nodesToExplore.add(result);
-                                        nodesToExploreSet.put(result, result);
-                                        exploredNodes.remove(result);
-                                    }
-                                // otherwise we have a node that was not explored and yet to be inserted in
-                                // the list of nodes to explore
-                                } else {
-                                    updateNode(state, current, g, i);
-                                    state.setHeuristic(heuristic.estimate(state, problem.getGoal()));
-                                    nodesToExplore.add(state);
-                                    nodesToExploreSet.put(state, state);
-                                }
-                            // otherwise, if it was already added to the queue, we must check if it's cumulative cost
-                            // is lesser than the one currenty generated. In the positive case that it is, we update the
-                            // node in the list of the pending nodes with the lesser cost.
-                            } else if (g < result.getCost()) {
-                                updateNode(result, current, g, i);
-                            }
-                        }
-                    } else {
-                        List<ConditionalEffect> effects = op.getConditionalEffects();
-                        // Apply the effect to the child node (state)
-                        applyEffects(effects, current, state);
-
-                        double g = current.getCost() + op.getCost().getValue();
-                        Node result = nodesToExploreSet.get(state);
-
-                        // if the child node is yet to be explored
-                        if (result == null) {
-                            result = exploredNodes.get(state);
-                            // if the child node was already explored precedently
-                            if (result != null) {
-                                // if the cumulative cost of the node currently generated is lesser than the
-                                // node precedently explored, then we update it's fields and reinsert into the
-                                // list of nodes to be explored
-                                if (g < result.getCost()) {
-                                    updateNode(result, current, g, i);
-                                    nodesToExplore.add(result);
-                                    nodesToExploreSet.put(result, result);
-                                    exploredNodes.remove(result);
-                                }
-                                // otherwise we have a node that was not explored and yet to be inserted in
-                                // the list of nodes to explore
-                            } else {
-                                updateNode(state, current, g, i);
-                                state.setHeuristic(heuristic.estimate(state, problem.getGoal()));
-                                nodesToExplore.add(state);
-                                nodesToExploreSet.put(state, state);
-                            }
-                            // otherwise, if it was already added to the queue, we must check if it's cumulative cost
-                            // is lesser than the one currenty generated. In the positive case that it is, we update the
-                            // node in the list of the pending nodes with the lesser cost.
-                        } else if (g < result.getCost()) {
-                            updateNode(result, current, g, i);
-                        }
-                    }
- */
 
 
