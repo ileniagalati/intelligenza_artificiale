@@ -1,8 +1,7 @@
-# intelligenza_artificiale
+# Planning System
 
 
-Comando per l'esecuzione:
-
+how to execute:
 
 /path/to/java_executable \
 -javaagent:/path/to/IntelliJ_IDEA/Contents/lib/idea_rt.jar=PORT:/path/to/IntelliJ_IDEA/Contents/bin \
